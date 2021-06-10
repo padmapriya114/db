@@ -168,15 +168,11 @@ LIMIT 2 OFFSET 2;
 Database normalization is useful because it minimizes duplicate data in any single table, and allows for data in the database to grow independently of each other<br>
 
 #### PRIMARY KEY
-
- Tables that share information about a single entity need to have a primary key that identifies that entity uniquely across the database.
- One common primary key type is an auto-incrementing integer (because they are space efficient), but it can also be a string, hashed value, so long as it is unique.<br>
----
+Tables that share information about a single entity need to have a primary key that identifies the entity uniquely across the database..<br>
 
 ### JOIN
+we can combine row data across two seperate tables using the unique key.<br>
 
-Using the JOIN clause in a query, we can combine row data across two separate tables using this unique key. The first of the joins that we will introduce is the INNER JOIN.<br>
----
 ### INNER JOINs
 The INNER JOIN is a process that matches rows from the first table and the second table which have the same key (as defined by the ON constraint) to create a result row with the combined columns from both tables. After the tables are joined, the other clauses we learned previously are then applied.<br>
 ##### SYNTAX
@@ -190,7 +186,6 @@ ORDER BY column, … ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 
 ```
----
 ###### Example
 
 1.Find the domestic and international sales for each movie
@@ -233,15 +228,12 @@ WHERE condition(s)
 ORDER BY column, … ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 ```
-######Explanation
-Like the INNER JOIN these three new joins have to specify which column to join the data on.<br>
-When joining table A to table B, a LEFT JOIN simply includes rows from A regardless of whether a matching row is found in B. The RIGHT JOIN is the same, but reversed, keeping rows in B regardless of whether a match is found in A. Finally, a FULL JOIN simply means that rows from both tables are kept, regardless of whether a matching row exists in the other table.<br>
 ---
 ### NULL
 An alternative to NULL values in your database is to have data-type appropriate default values, like 0 for numerical data, empty strings for text data, etc. But if your database needs to store incomplete data, then NULL values can be appropriate if the default values will skew later analysis (for example, when taking averages of numerical data).<br>
 ### NOTNULL
 Sometimes, it's also not possible to avoid NULL values, as we saw in the last lesson when outer-joining two tables with asymmetric data. In these cases, you can test a column for NULL values in a WHERE clause by using either the IS NULL or IS NOT NULL constraint.<br>
----
+
 ##### SYNTAX
 ```
 SELECT column, another_column, …
